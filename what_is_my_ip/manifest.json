@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+    "name": "查看本机 IP",
+    "version": "1.0",
+    "description": "查看本机 IP 地址",
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "browser_action": {
+        "default_action": {
+            "19": "images/icon19.png",
+            "38": "images/icon38.png"
+        },
+        "default_title": "查看本机 IP",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "https://ip.cn/"
+    ]
+}
