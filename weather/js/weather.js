@@ -1,4 +1,4 @@
-function httpRequest(url, callback){
+function httpRequest(url, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     xhr.onreadystatechange = function () {
@@ -10,23 +10,22 @@ function httpRequest(url, callback){
 }
 
 function showWeather(result) {
+    console.log(result);
     result = JSON.parse(result);
-    var list = result.list;
     var table = '<table><tr><th>日期</th><th>天气</th><th>最低温度</th><th>最高温度</th></tr>';
-    for(var i in list){
-        var d = new Date(list[i].dt*1000);
-        table += '<tr>';
-        table += '<td>'+d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()+'</td>';
-        table += '<td>'+list[i].weather[0].description+'</td>';
-        table += '<td>'+Math.round(list[i].temp.min-273.15)+' °C</td>';
-        table += '<td>'+Math.round(list[i].temp.max-273.15)+' °C</td>';
-        table += '</tr>';
-    }
+    var d = new Date(result.dt * 1000);
+    table += '<tr>';
+    table += '<td>' + d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + '</td>';
+    table += '<td>' + result.weather[0].description + '</td>';
+    table += '<td>' + Math.round(result.main.temp_min - 273.15) + ' °C</td>';
+    table += '<td>' + Math.round(result.main.temp_max - 273.15) + ' °C</td>';
+    table += '</tr>';
     table += '</table>';
     document.getElementById('weather').innerHTML = table;
 }
 
 var city = localStorage.city;
 city = city ? city : "Shanghai";
-var url = "http://api.openweathermap.org/data/2.5/weather?q=Shanghai&APPID=1ffc6aad9bc3d5976d7beb8e6e455af2&lang=zh_cn";
+var url = "http://api.openweathermap.org/data/2.5/weather?q=" + city
+          + "&APPID=1ffc6aad9bc3d5976d7beb8e6e455af2&lang=zh_cn";
 httpRequest(url, showWeather);
