@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "browser_action",
+    "version": "1.0",
+    "description": "browser_action",
+    "browser_action": {
+        "default_action": {
+            "19": "images/icon19_0.png",
+            "38": "images/icon38_0.png"
+        },
+        "default_title": "browser_action"
+    },
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ]
+    }
+}

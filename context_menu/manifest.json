@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "右键菜单",
+    "version": "1.0",
+    "description": "右键菜单",
+    "icons": {
+        "16": "images/icon16.png"
+    },
+    "permissions": [
+        "contextMenus"
+    ],
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["js/content.js"]
+        }
+    ]
+}
