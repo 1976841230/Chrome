@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "知乎 Markdown 扩展",
+    "version": "0.0.1",
+    "description": "实现在知乎使用 Markdown 语法写文章",
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "browser_action": {
+        "default_action": {
+            "19": "images/icon19.png",
+            "38": "images/icon38.png"
+        },
+        "default_title": "知乎 Markdown 扩展",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "*://zhuanlan.zhihu.com/*"
+    ],
+    "content_scripts": [{
+        "matches": ["*://zhuanlan.zhihu.com/*"],
+        "css": ["css/markdown.css"],
+        "js": ["js/jquery-3.3.1.js", "js/markdown.js", "js/showdown.js"]
+    }],
+    "options_page": "options.html"
+}
